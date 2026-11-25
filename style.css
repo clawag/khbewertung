@@ -381,3 +381,9 @@ select {
     }
 
 }
+/* Trennlinien mit mehr Abstand nach oben */
+
+.trennlinie {
+    margin-top: 14px;
+    margin-bottom: 6px;
+}
