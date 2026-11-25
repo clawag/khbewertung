@@ -324,3 +324,60 @@ select {
         margin: 6px 0;
     }
 }
+
+/* Figuranten: Dropdown weiter in die Mitte */
+
+.kopfzeile {
+    display: grid;
+    grid-template-columns: 1fr 100px 70px;
+    align-items: center;
+    gap: 8px;
+}
+
+.kopfzeile select {
+    width: 100%;
+}
+
+.kopfzeile .neu-button {
+    width: 100%;
+    margin: 0;
+}
+
+
+/* Fehlanzeigen */
+
+.fehlanzeigen-zeile {
+    display: grid;
+    grid-template-columns: 1fr 100px 100px;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+}
+
+.fehlanzeigen-zeile select {
+    width: 100%;
+}
+
+.fehlanzeigen-abzug {
+    text-align: right;
+    font-weight: 600;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+
+/* Handy */
+
+@media (max-width: 480px) {
+
+    .kopfzeile {
+        grid-template-columns: 1fr 105px 65px;
+    }
+
+    .fehlanzeigen-zeile {
+        grid-template-columns: 1fr 90px 90px;
+        gap: 6px;
+        padding: 8px 4px;
+    }
+
+}

@@ -25,6 +25,10 @@ const bewertungStatus = document.getElementById("bewertungStatus");
 const bewertungsblock = document.querySelector(".bewertungsblock");
 const eingabeHinweis = document.getElementById("eingabeHinweis");
 
+const fehlanzeigenAbzug =
+    document.getElementById("fehlanzeigenAbzug");
+
+
 
 // ==========================================
 // HILFSFUNKTIONEN
@@ -142,6 +146,13 @@ function berechneAlles() {
 
     const anzahlFehlanzeigen =
         leseAuswahl(fehlanzeigen, 0, 5);
+
+if (anzahlFehlanzeigen !== null) {
+    fehlanzeigenAbzug.textContent =
+        "−" + (anzahlFehlanzeigen * 2) + " Punkte";
+} else {
+    fehlanzeigenAbzug.textContent = "– Punkte";
+}
 
     const punkte = lesePunkte(
     punkteAllgemein, 0, 20
