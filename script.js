@@ -144,8 +144,8 @@ function berechneAlles() {
         leseAuswahl(fehlanzeigen, 0, 5);
 
     const punkte = lesePunkte(
-        punkteAllgemein, 10, 20
-    );
+    punkteAllgemein, 0, 20
+);
 
     const maxPunkte =
         anzahlFiguranten !== null
