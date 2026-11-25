@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "bewertung_v6";
+const CACHE_NAME = "bewertung_v7";
 
 const FILES = [
     "./",
