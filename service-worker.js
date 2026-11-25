@@ -1,12 +1,14 @@
 
-const CACHE_NAME = "bewertung_v3";
+const CACHE_NAME = "bewertung_v4";
 
 const FILES = [
     "./",
     "./index.html",
     "./style.css",
     "./script.js",
-    "./manifest.json"
+    "./manifest.json",
+    "./icon-192.png",
+    "./icon-512.png"
 ];
 
 
@@ -38,10 +40,12 @@ self.addEventListener("activate", event => {
                     .map(name => caches.delete(name))
             );
 
+        }).then(() => {
+
+            return self.clients.claim();
+
         })
     );
-
-    self.clients.claim();
 
 });
 
