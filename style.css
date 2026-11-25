@@ -1,4 +1,12 @@
 
+/* ==========================================
+   GRUNDEINSTELLUNGEN
+========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -6,12 +14,10 @@ body {
     color: #000000;
 }
 
-.eingabezeile {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 25px;
-}
+
+/* ==========================================
+   BESCHRIFTUNGEN UND EINGABEN
+========================================== */
 
 .beschriftung {
     width: 50%;
@@ -23,48 +29,50 @@ select {
     height: 38px;
     font-size: 16px;
     padding: 5px;
-    box-sizing: border-box;
 }
 
-.kriterium {
-    margin-bottom: 25px;
-}
 
-.punkte-container {
-    display: flex;
-    flex-wrap: wrap;
+/* ==========================================
+   FIGURANTEN-KOPFZEILE
+========================================== */
+
+.kopfzeile {
+    display: grid;
+    grid-template-columns: 1fr 100px 65px;
+    align-items: center;
     gap: 8px;
-    margin-top: 10px;
+
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    padding: 12px 10px;
+    min-height: 58px;
 }
 
-.punkte-button {
-    width: 55px;
-    height: 42px;
+.kopfzeile .beschriftung {
+    width: auto;
+    padding-left: 10px;
     font-size: 16px;
-    border: 1px solid #888888;
-    border-radius: 6px;
-    background-color: #ffffff;
-    color: #000000;
-    cursor: pointer;
+    font-weight: 600;
+    white-space: nowrap;
+    text-align: left;
 }
 
-.punkte-button.aktiv {
-    background-color: #444444;
-    color: #ffffff;
-    border-color: #444444;
+.kopfzeile select {
+    width: 100%;
+    min-width: 0;
+    transform: translateX(-25px);
 }
 
-.trennlinie {
-    border: none;
-    border-top: 1px solid #dddddd;
-    margin: 25px 0;
-}
+
+/* ==========================================
+   BUTTON NEU
+========================================== */
 
 .neu-button {
-    width: 100%;
+    width: 65px;
     height: 42px;
-    margin-top: 0;
-    margin-bottom: 5px;
+    margin: 0;
+    padding: 0 5px;
     font-size: 16px;
     background-color: #ff5721;
     color: #ffffff;
@@ -73,29 +81,124 @@ select {
     cursor: pointer;
 }
 
-/* Bewertungsblock */
+
+/* ==========================================
+   EINGABEZEILEN
+========================================== */
+
+.eingabezeile {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+
+/* ==========================================
+   FEHLANZEIGEN
+========================================== */
+
+.fehlanzeigen-zeile {
+    display: grid;
+    grid-template-columns: 1fr 100px 100px;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+}
+
+.fehlanzeigen-zeile .beschriftung {
+    width: auto;
+}
+
+.fehlanzeigen-zeile select {
+    width: 100%;
+    transform: translateX(-25px);
+}
+
+.fehlanzeigen-abzug {
+    text-align: right;
+    font-weight: normal;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   KRITERIEN
+========================================== */
+
+.kriterium {
+    margin: 8px 0;
+}
+
+.kriterium .beschriftung {
+    display: block;
+    width: auto;
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+.trennlinie {
+    border: none;
+    border-top: 1px solid #dddddd;
+    margin-top: 14px;
+    margin-bottom: 6px;
+}
+
+
+/* ==========================================
+   PUNKTEBUTTONS
+========================================== */
+
+.punkte-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.punkte-button {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    padding: 5px 2px;
+    margin: 0;
+    font-size: 15px;
+    border: 1px solid #888888;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.punkte-button.aktiv {
+    background-color: #444444;
+    color: #ffffff;
+    border-color: #444444;
+}
+
+
+/* ==========================================
+   BEWERTUNGSBLOCK
+========================================== */
 
 .bewertungsblock {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 18px 15px;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    padding: 10px;
+    margin: 10px 0;
     background-color: #f2f2f2;
     border: 1px solid #dddddd;
     border-radius: 8px;
     font-weight: bold;
 }
 
-/* Bestanden: Hellgrün */
-
 .bewertungsblock.bestanden {
     background-color: #e8f5e9;
     border-color: #c8e6c9;
 }
-
-/* Nicht bestanden: Hellrot */
 
 .bewertungsblock.out {
     background-color: #ffebee;
@@ -105,12 +208,13 @@ select {
 .bewertung-label {
     width: 33%;
     font-size: 15px;
+    margin-bottom: 3px;
 }
 
 .bewertung-punktzahl {
     width: 33%;
     text-align: center;
-    font-size: 22px;
+    font-size: 32px;
 }
 
 .bewertung-status {
@@ -131,10 +235,13 @@ select {
     color: #888888;
 }
 
-/* Herleitung */
+
+/* ==========================================
+   HERLEITUNG
+========================================== */
 
 .herleitung {
-    margin-top: 25px;
+    margin-top: 8px;
 }
 
 .herleitung summary {
@@ -150,7 +257,8 @@ select {
 }
 
 .herleitung-inhalt {
-    margin-top: 15px;
+    margin-top: 6px;
+    padding-top: 6px;
 }
 
 .herleitung-zeile {
@@ -176,7 +284,10 @@ select {
     margin-bottom: 0;
 }
 
-/* Eingabehinweis */
+
+/* ==========================================
+   EINGABEHINWEIS
+========================================== */
 
 .eingabe-hinweis {
     margin-top: -15px;
@@ -193,102 +304,6 @@ select {
     display: none;
 }
 
-/* ==========================================
-   KOMPAKTE KOPFZEILE
-========================================== */
-
-.kopfzeile {
-    display: grid;
-    grid-template-columns: 1fr 90px 70px;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 10px;
-}
-
-.kopfzeile .beschriftung {
-    white-space: nowrap;
-}
-
-.kopfzeile select {
-    width: 100%;
-    min-width: 0;
-}
-
-.kopfzeile .neu-button {
-    width: 100%;
-    margin: 0;
-    padding: 10px 5px;
-}
-
-
-/* ==========================================
-   ABSTÄNDE KOMPAKTER
-========================================== */
-
-.kriterium {
-    margin: 8px 0;
-}
-
-.kriterium .beschriftung {
-    margin-bottom: 6px;
-}
-
-.trennlinie {
-    margin: 8px 0;
-}
-
-
-/* ==========================================
-   PUNKTEBUTTONS
-========================================== */
-
-.punkte-container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 6px;
-}
-
-.punkte-button {
-    width: 100%;
-    min-width: 0;
-    min-height: 42px;
-    padding: 5px 2px;
-    margin: 0;
-    font-size: 15px;
-    touch-action: manipulation;
-}
-
-
-/* ==========================================
-   BEWERTUNG
-========================================== */
-
-.bewertungsblock {
-    margin: 10px 0;
-    padding: 10px;
-}
-
-.bewertung-punktzahl {
-    font-size: 32px;
-}
-
-.bewertung-label {
-    margin-bottom: 3px;
-}
-
-
-/* ==========================================
-   HERLEITUNG
-========================================== */
-
-.herleitung {
-    margin-top: 8px;
-}
-
-.herleitung-inhalt {
-    padding-top: 6px;
-}
-
 
 /* ==========================================
    HANDYOPTIMIERUNG
@@ -297,13 +312,25 @@ select {
 @media (max-width: 480px) {
 
     body {
+        margin: 0;
         padding: 6px;
     }
 
     .kopfzeile {
-        grid-template-columns: 1fr 85px 65px;
+        grid-template-columns: 1fr 105px 65px;
         gap: 7px;
-        padding: 6px 4px;
+        padding: 12px 4px;
+    }
+
+    .kopfzeile select,
+    .fehlanzeigen-zeile select {
+        transform: translateX(-20px);
+    }
+
+    .fehlanzeigen-zeile {
+        grid-template-columns: 1fr 90px 90px;
+        gap: 6px;
+        padding: 8px 4px;
     }
 
     .punkte-container {
@@ -320,104 +347,4 @@ select {
         margin: 6px 0;
     }
 
-    .trennlinie {
-        margin: 6px 0;
-    }
-}
-
-//* Figuranten */
-
-.kopfzeile {
-    display: grid;
-    grid-template-columns: 1fr 100px 65px;
-    align-items: center;
-    gap: 8px;
-}
-
-.kopfzeile select {
-    width: 100%;
-    justify-self: start;
-    transform: translateX(-25px);
-}
-
-
-/* Fehlanzeigen */
-
-.fehlanzeigen-zeile {
-    display: grid;
-    grid-template-columns: 1fr 100px 100px;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 10px;
-}
-
-.fehlanzeigen-zeile select {
-    width: 100%;
-    transform: translateX(-25px);
-}
-
-.fehlanzeigen-abzug {
-    text-align: right;
-    font-weight: normal;
-    white-space: nowrap;
-    font-size: 14px;
-}
-
-
-/* Handy */
-
-@media (max-width: 480px) {
-
-    .kopfzeile select,
-    .fehlanzeigen-zeile select {
-        transform: translateX(-20px);
-    }
-
-}
-
-/* Handy */
-
-@media (max-width: 480px) {
-
-    .kopfzeile {
-        grid-template-columns: 1fr 105px 65px;
-    }
-
-    .fehlanzeigen-zeile {
-        grid-template-columns: 1fr 90px 90px;
-        gap: 6px;
-        padding: 8px 4px;
-    }
-
-}
-/* Trennlinien mit mehr Abstand nach oben */
-
-.trennlinie {
-    margin-top: 14px;
-    margin-bottom: 6px;
-}
-.kopfzeile .beschriftung {
-    font-size: 16px;
-    font-weight: normal;
-    text-align: left;
-    padding-left: 10px;
-}
-/* Figuranten-Block hervorheben */
-
-.kopfzeile {
-    display: grid;
-    grid-template-columns: 1fr 100px 65px;
-    align-items: center;
-    gap: 8px;
-
-    background-color: #f2f2f2;
-    border-radius: 8px;
-    padding: 12px 10px;
-    margin-bottom: 0;
-    min-height: 58px;
-}
-
-.kopfzeile .beschriftung {
-    font-size: 16px;
-    font-weight: 600;
 }
