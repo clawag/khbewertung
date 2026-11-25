@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+
+<!--
+    Anwendung: Punkteschlüssel für KH EGT und ET
+    Erstellt von: Claudia Wagner, RG SO
+    Erstellungsjahr: 2026
+    Letzte Änderung: 25.11.2026
+-->
+
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Bewertung</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Anzahl Figuranten -->
+
+    <div class="eingabezeile">
+        <label class="beschriftung" for="figuranten">
+            Anzahl Figuranten
+        </label>
+
+        <select id="figuranten">
+            <option value="" selected disabled>Auswahl</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+    </div>
+
+    <!-- Button Neu -->
+
+    <button type="button" class="neu-button" id="neu">
+        Neu
+    </button>
+
+    <hr class="trennlinie">
+
+    <!-- Punkte allgemein -->
+
+    <div class="kriterium">
+        <div class="beschriftung">
+            Punkte allgemein
+        </div>
+
+        <div class="punkte-container" id="punkteAllgemein">
+            <button type="button" class="punkte-button">10</button>
+            <button type="button" class="punkte-button">11</button>
+            <button type="button" class="punkte-button">12</button>
+            <button type="button" class="punkte-button">13</button>
+            <button type="button" class="punkte-button">14</button>
+            <button type="button" class="punkte-button">15</button>
+            <button type="button" class="punkte-button">16</button>
+            <button type="button" class="punkte-button">17</button>
+            <button type="button" class="punkte-button">18</button>
+            <button type="button" class="punkte-button">19</button>
+            <button type="button" class="punkte-button">20</button>
+        </div>
+    </div>
+
+    <hr class="trennlinie">
+
+    <!-- Punkte HF -->
+
+    <div class="kriterium">
+        <div class="beschriftung">
+            Punkte HF
+        </div>
+
+        <div class="punkte-container" id="punkteHF">
+        </div>
+    </div>
+
+    <hr class="trennlinie">
+
+    <!-- Punkte H -->
+
+    <div class="kriterium">
+        <div class="beschriftung">
+            Punkte H
+        </div>
+
+        <div class="punkte-container" id="punkteH">
+        </div>
+    </div>
+
+    <hr class="trennlinie">
+
+    <!-- Anzahl Fehlanzeigen -->
+
+    <div class="eingabezeile">
+        <label class="beschriftung" for="fehlanzeigen">
+            Anzahl Fehlanzeigen
+        </label>
+
+       <select id="fehlanzeigen">
+    <option value="0" selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>
+    </div>
+
+    <!-- Bewertungsblock -->
+
+    <div class="bewertungsblock">
+        <div class="bewertung-label">
+            Bewertung
+        </div>
+
+        <div class="bewertung-punktzahl" id="bewertungOben">
+            –
+        </div>
+
+        <div class="bewertung-status neutral" id="bewertungStatus">
+            –
+        </div>
+    </div>
+
+
+<div class="eingabe-hinweis" id="eingabeHinweis"
+     role="status" aria-live="polite" hidden>
+</div>
+
+
+    <!-- Herleitung -->
+
+    <details class="herleitung">
+        <summary>Herleitung anzeigen</summary>
+
+        <div class="herleitung-inhalt">
+
+            <div class="herleitung-zeile">
+                <span>Ergebnis Allgemein</span>
+                <span class="herleitung-wert" id="ergebnisAllgemein">–</span>
+            </div>
+
+            <div class="herleitung-formel" id="formelAllgemein">
+                (– × 5 / 20 + 1) × 0.9
+            </div>
+
+            <div class="herleitung-zeile">
+                <span>Ergebnis Anzeigen</span>
+                <span class="herleitung-wert" id="ergebnisAnzeigen">–</span>
+            </div>
+
+            <div class="herleitung-formel" id="formelAnzeigen">
+                (– × 0.8) + –
+            </div>
+
+            <div class="herleitung-zeile">
+                <span>Gewichtung Anzeigen</span>
+                <span class="herleitung-wert" id="gewichtungAnzeigen">–</span>
+            </div>
+
+            <div class="herleitung-formel" id="formelGewichtung">
+                (– × 5 / (8 × –)) + 1
+            </div>
+
+            <div class="herleitung-zeile">
+                <span>Bewertung</span>
+                <span class="herleitung-wert" id="bewertung">–</span>
+            </div>
+
+            <div class="herleitung-formel" id="formelBewertung">
+                (– + –) / 2
+            </div>
+
+        </div>
+    </details>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
